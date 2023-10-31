@@ -37,7 +37,7 @@ const Inquiry = () => {
               // Notify the user, their response has been recorded
               toast.success("Your response has been recorded", {
                   position: "top-center",
-                  autoClose: 3000,
+                  autoClose: 10000,
                   hideProgressBar: true,
                   closeOnClick: true,
                   pauseOnHover: true,
@@ -81,6 +81,7 @@ const Inquiry = () => {
                     value={contactInfo.email}
                     onChange={onChange}
                     pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+
                 />
                 {!validEmail && (
                   <p style={{ color: 'red' }}>Please enter a valid email address</p>

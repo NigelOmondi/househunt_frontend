@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 
 const useHouses = () => {
@@ -7,9 +8,11 @@ const useHouses = () => {
     // load data
     useEffect(() => {
       const fetchHouses = async () => {
-        const response = await fetch("/api/houses");
-        const houses = await response.json();
-        setAllHouses(houses);
+        const API_URL = process.env.REACT_APP_API_URL;
+
+        const response = await axios.get(`${API_URL}/api/houses`);
+        //const houses = await response.json();
+        setAllHouses(response.data);
       };
       fetchHouses();
     }, []);

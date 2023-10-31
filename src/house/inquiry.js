@@ -1,4 +1,7 @@
 import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Inquiry = () => {
     const [contactInfo, setContactInfo] = useState({
@@ -25,23 +28,32 @@ const Inquiry = () => {
             return;
         }
 
-        const response = await fetch('/api/inquiries', {
-            method: 'POST',
-            body: JSON.stringify(contactInfo),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+        try {
+            const API_URI = process.env.REACT_APP_API_URL;
 
-        if (response.ok) {
-            // reset the form
-            setContactInfo({
-                name: "",
-                email: "",
-                remarks: "",
-            });
-            // Send entered data to database
-            console.log(contactInfo);
+            const response = await axios.post(`${API_URI}/api/inquiries`, contactInfo);
+            
+            if (response.status === 200) {
+              // Notify the user, their response has been recorded
+              toast.success("Your response has been recorded", {
+                  position: "top-center",
+                  autoClose: 3000,
+                  hideProgressBar: true,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+               });
+
+             // reset the form after successful submission
+              setContactInfo({
+                  name: "",
+                  email: "",
+                  remarks: "",
+               });
+            }   
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            // Notify the user if there's an error
+            toast.error("Error submitting the form. Please try again later.");
         };
         
     };

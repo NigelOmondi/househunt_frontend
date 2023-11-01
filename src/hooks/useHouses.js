@@ -8,9 +8,8 @@ const useHouses = () => {
     // load data
     useEffect(() => {
       const fetchHouses = async () => {
-        const API_URL = process.env.REACT_APP_API_URL;
 
-        const response = await axios.get(`${API_URL}/api/houses`);
+        const response = await axios.get('https://househunt-api.onrender.com/api/houses');
         //const houses = await response.json();
         setAllHouses(response.data);
       };

@@ -29,9 +29,7 @@ const Inquiry = () => {
         }
 
         try {
-            const API_URI = process.env.REACT_APP_API_URL;
-
-            const response = await axios.post(`${API_URI}/api/inquiries`, contactInfo);
+            const response = await axios.post('https://househunt-api.onrender.com/api/inquiries', contactInfo);
             
             if (response.status === 200) {
               // Notify the user, their response has been recorded

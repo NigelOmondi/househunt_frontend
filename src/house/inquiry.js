@@ -37,8 +37,8 @@ const Inquiry = () => {
               // Notify the user, their response has been recorded
               toast.success("Your response has been recorded", {
                   position: "top-center",
-                  autoClose: 10000,
-                  hideProgressBar: true,
+                  autoClose: 6000,
+                  hideProgressBar: false,
                   closeOnClick: true,
                   pauseOnHover: true,
                });
@@ -80,7 +80,7 @@ const Inquiry = () => {
                     placeholder="Email"
                     value={contactInfo.email}
                     onChange={onChange}
-                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                    pattern="^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]"
 
                 />
                 {!validEmail && (

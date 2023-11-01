@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,12 +11,19 @@ const Inquiry = () => {
     });
 
     const [validEmail, setValidEmail] = useState(true);
+    const nameInputRef = useRef(null);
 
     const onChange =  (e) => {
         setContactInfo({ ...contactInfo, [e.target.id]: e.target.value });
         if (e.target.id === 'email') {
             const isValid = e.target.checkValidity();
             setValidEmail(isValid);
+        }
+    };
+
+    const focusOnName = () => {
+        if (nameInputRef.current) {
+            nameInputRef.current.focus();
         }
     };
 
@@ -53,7 +60,6 @@ const Inquiry = () => {
             // Notify the user if there's an error
             toast.error("Error submitting the form. Please try again later.");
         };
-        
     };
 
     return (
@@ -67,6 +73,7 @@ const Inquiry = () => {
                     id="name"
                     value={contactInfo.name}
                     onChange={onChange}
+                    ref={nameInputRef} // Reference for the Name input
                 />    
             </div>
             <div className="form-group">
@@ -79,7 +86,7 @@ const Inquiry = () => {
                     value={contactInfo.email}
                     onChange={onChange}
                     pattern="/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/"
-
+                    onClick={focusOnName} // Trigger focus on Name input when Email is clicked
                 />
                 {!validEmail && (
                   <p style={{ color: 'red' }}>Please enter a valid email address</p>
@@ -104,5 +111,5 @@ const Inquiry = () => {
         </form>
     );
 };
- 
+
 export default Inquiry;

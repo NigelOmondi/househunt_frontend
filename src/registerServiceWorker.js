@@ -30,6 +30,7 @@ const isLocalhost = Boolean(
       }
   
       window.addEventListener('load', () => {
+        // add environmment variable
         const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
   
         if (isLocalhost) {

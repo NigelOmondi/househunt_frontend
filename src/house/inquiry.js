@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,30 +10,16 @@ const Inquiry = () => {
         remarks: "",
     });
 
-    const [validEmail, setValidEmail] = useState(true);
-    const nameInputRef = useRef(null);
 
     const onChange =  (e) => {
         setContactInfo({ ...contactInfo, [e.target.id]: e.target.value });
-        if (e.target.id === 'email') {
-            const isValid = e.target.checkValidity();
-            setValidEmail(isValid);
-        }
-    };
-
-    const focusOnName = () => {
-        if (nameInputRef.current) {
-            nameInputRef.current.focus();
-        }
+       
     };
 
     const onSubmit = async (e) => {
         e.preventDefault();
 
-        if (!validEmail) {
-            alert('Please enter a valid email address');
-            return;
-        }
+
 
         try {
             const response = await axios.post('https://househunt-api.onrender.com/api/inquiries', contactInfo);
@@ -41,7 +27,7 @@ const Inquiry = () => {
             if (response.status === 200) {
               // Notify the user, their response has been recorded
               toast.success("Your response has been recorded", {
-                  position: "top-center",
+                  position: "bottom-center",
                   autoClose: 6000,
                   hideProgressBar: false,
                   closeOnClick: true,
@@ -60,6 +46,7 @@ const Inquiry = () => {
             // Notify the user if there's an error
             toast.error("Error submitting the form. Please try again later.");
         };
+        
     };
 
     return (
@@ -73,7 +60,6 @@ const Inquiry = () => {
                     id="name"
                     value={contactInfo.name}
                     onChange={onChange}
-                    ref={nameInputRef} // Reference for the Name input
                 />    
             </div>
             <div className="form-group">
@@ -85,12 +71,8 @@ const Inquiry = () => {
                     placeholder="Email"
                     value={contactInfo.email}
                     onChange={onChange}
-                    pattern="/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/"
-                    onClick={focusOnName} // Trigger focus on Name input when Email is clicked
+
                 />
-                {!validEmail && (
-                  <p style={{ color: 'red' }}>Please enter a valid email address</p>
-                )}
             </div>
             <div className="form-group">
                 <label htmlFor="remarks">Remarks</label>
@@ -111,5 +93,5 @@ const Inquiry = () => {
         </form>
     );
 };
-
+ 
 export default Inquiry;

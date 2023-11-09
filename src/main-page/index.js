@@ -8,6 +8,12 @@ import HouseFromQuery from '../house/HouseFromQuery';
 import useHouses from '../hooks/useHouses';
 import useFeaturedHouse from '../hooks/useFeaturedHouse';
 import HousesContext from '../context/housesContext';
+import Navbar from '../Navbar';
+import Hero from '../Hero';
+import Cover from '../Cover';
+import Footer from '../Footer';
+import Cards from '../Cards';
+import Video from '../video';
 
 function App() {
   const allHouses = useHouses();
@@ -18,20 +24,60 @@ function App() {
     <Router>
       <HousesContext.Provider value={allHouses}>
         <div className="container">
-            <Header subtitle="Providing houses all over Kenya" />
-            <HouseFilter />
+            
 
                 <Switch>
+                  <Route exact path="/">
+                    <Navbar />
+                    <Hero />
+                  </Route>
+
+                  <Route path="/home">
+                  <Navbar />
+                    <Hero />
+                  </Route>
+
+                  <Route path="/about">
+                    <Navbar />
+                    <Cover />
+                  </Route>
+
+                  <Route path="/features">
+                    <Navbar />
+                    <Cards />
+                  </Route>
+
+                  <Route path="/demo">
+                    <Navbar />
+                    <Video />
+                    <Footer />
+                  </Route>
+
+                  <Route path="/contact">
+                    <Navbar />
+                    <Footer />
+                  </Route>
+
+
                   <Route path="/searchresults/:county">
+                      <Header subtitle="Providing houses all over Kenya" />
+                      <HouseFilter />
                     <SearchResults />
+                    <Footer />
                   </Route>
 
                   <Route path="/house/:id">
+                    <Header subtitle="Providing houses all over Kenya" />
+                    <HouseFilter />
                     <HouseFromQuery />
+                    <Footer />
                   </Route>
 
-                  <Route path="/">
+                  <Route path="/all">
+                    <Header subtitle="Providing houses all over Kenya" />
+                    <HouseFilter />
                     <FeaturedHouse house={featuredHouse} />
+                    <Footer />
                   </Route>
                 </Switch>
         </div>

@@ -24,11 +24,11 @@ const Navbar = () => {
       </div>
       <ul className={nav ? 'fixed left-0 top-0 w-[60%] h-full text-white border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500' : 'ease-in-out duration-500 fixed left-[-100%]'}>
         <h1 className='w-full text-3xl font-bold text-[#8d00df] m-4'>HouseHunt</h1>
-        <Link to='/home' className='p-4 border-b border-gray-600'>Home</Link>
-        <Link to='/about' className='p-4 border-b border-gray-600'>About</Link>
-        <Link to='/features' className='p-4 border-b border-gray-600'>Features</Link>
-        <Link to='/demo' className='p-4 border-b border-gray-600'>Demo</Link>
-        <Link to='/contact' className='p-4'>Contact</Link>
+          <Link to="/home"><li className='p-4 border-b border-gray-600'>Home</li></Link>
+          <Link to="/about"><li className='p-4 border-b border-gray-600'>About</li></Link>
+          <Link to="/features"><li className='p-4 border-b border-gray-600'>Features</li></Link>
+          <Link to="/demo"> <li className='p-4 border-b border-gray-600'>Demo</li></Link>
+          <Link to="/contact"><li className='p-4'>Contact</li></Link>
       </ul>
     </div>
   );

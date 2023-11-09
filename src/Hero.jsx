@@ -1,9 +1,11 @@
 import React from 'react';
 import Typed from 'react-typed';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import searchgif from "../src/images/search.gif";
 const Hero = () => {
   return (
     <div className='text-black'>
+      <img className="flex mx-auto" src={searchgif} alt="searchgif" />
             <div className='max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center'>
               <p className='text-[#8d00df] font-bold p-2'>
                  PROVIDING HOUSES ALL OVER KENYA

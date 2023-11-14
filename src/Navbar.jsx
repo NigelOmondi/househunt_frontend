@@ -9,6 +9,10 @@ const Navbar = () => {
     setNav(!nav);
   };
 
+  const closeNav = () => {
+    setNav(false);
+  };
+
   return (
     <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4'>
       <h1 className='w-full text-3xl font-bold text-[#8d00df]'>HouseHunt</h1>
@@ -23,10 +27,10 @@ const Navbar = () => {
       </div>
       <ul className={nav ? 'fixed left-0 top-0 w-[60%] h-full text-white border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500' : 'ease-in-out duration-500 fixed left-[-100%]'}>
         <h1 className='w-full text-3xl font-bold text-[#8d00df] m-4'>HouseHunt</h1>
-          <Link to="/home"><li className='p-4 border-b border-gray-600'>Home</li></Link>
-          <Link to="/about"><li className='p-4 border-b border-gray-600'>About</li></Link>
-          <Link to="/features"><li className='p-4 border-b border-gray-600'>Features</li></Link>
-          <Link to="/contact"><li className='p-4'>Contact</li></Link>
+          <Link to="/home" onClick={closeNav}><li className='p-4 border-b border-gray-600'>Home</li></Link>
+          <Link to="/about" onClick={closeNav}><li className='p-4 border-b border-gray-600'>About</li></Link>
+          <Link to="/features" onClick={closeNav}><li className='p-4 border-b border-gray-600'>Features</li></Link>
+          <Link to="/contact" onClick={closeNav}><li className='p-4'>Contact</li></Link>
       </ul>
     </div>
   );

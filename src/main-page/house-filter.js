@@ -19,7 +19,7 @@ const HouseFilter = () => {
     return (
         <div className="row mt-3">
         <div className="offset-md-2 col-md-4">
-            Look for your dream house in county:
+            Look for your dream house per county:
         </div>
         <div className="col-md-4 mb-3">
             <select className="form-select" onChange={onSearchChange}>

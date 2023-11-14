@@ -28,7 +28,8 @@ const House = ( { house }) => {
                     <p><b>For inquiries, please click on the mailbox icon below:</b></p>
                     <img
                         src={emailIcon}
-                        height="50"
+                        height="30"
+                        width="30"
                         alt="inquiry"
                         onClick={inquiryClick}
                     />

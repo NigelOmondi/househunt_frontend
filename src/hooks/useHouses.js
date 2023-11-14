@@ -9,7 +9,7 @@ const useHouses = () => {
     useEffect(() => {
       const fetchHouses = async () => {
 
-        const response = await axios.get('https://househunt-api.onrender.com/api/houses');
+        const response = await axios.get('https://househunt-api.onrender.com/api/houses/all');
         //const houses = await response.json();
         setAllHouses(response.data);
       };

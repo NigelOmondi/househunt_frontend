@@ -18,9 +18,6 @@ const Footer = () => {
         <a href="https://www.linkedin.com/in/nigel-omondi-8b9333131/" target="_blank" rel="noopener noreferrer">
         <FaLinkedin size={30} />
       </a>
-      <a href="https://twitter.com/_OmondiNigel" target="_blank" rel="noopener noreferrer">
-        <FaTwitterSquare size={30} />
-      </a>
       <a href="https://github.com/NigelOmondi" target="_blank" rel="noopener noreferrer">
         <FaGithubSquare size={30} />
       </a>

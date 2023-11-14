@@ -2,7 +2,6 @@ import React from 'react';
 import {
   FaGithubSquare,
   FaLinkedin,
-  FaTwitterSquare,
 } from 'react-icons/fa';
 import { FaHashnode } from "react-icons/fa6";
 

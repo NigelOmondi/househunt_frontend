@@ -1,11 +1,10 @@
 import React from 'react';
 import {
-  FaDribbbleSquare,
-  FaFacebookSquare,
   FaGithubSquare,
-  FaInstagram,
+  FaLinkedin,
   FaTwitterSquare,
 } from 'react-icons/fa';
+import { FaHashnode } from "react-icons/fa6";
 
 
 const Footer = () => {
@@ -13,13 +12,21 @@ const Footer = () => {
     <div className='bg-blackmax-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-500'>
       <div>
         <h1 className='w-full text-3xl font-bold text-[#8d00df]'>HouseHunt</h1>
-        <p className='py-4'>Feel free to go over our resources and documentation, to better get a good feel of what we do.</p>
+        <p className='py-4'>Feel free to go over our resources and documentation, to better get a good feel of what we do.
+        <br></br>Reach out on any of these platforms.</p>
         <div className='flex justify-between md:w-[75%] my-6'>
-            <FaFacebookSquare size={30} />
-            <FaInstagram size={30} />
-            <FaTwitterSquare size={30} />
-            <FaGithubSquare size={30} />
-            <FaDribbbleSquare size={30} />
+        <a href="https://www.linkedin.com/in/nigel-omondi-8b9333131/" target="_blank" rel="noopener noreferrer">
+        <FaLinkedin size={30} />
+      </a>
+      <a href="https://twitter.com/_OmondiNigel" target="_blank" rel="noopener noreferrer">
+        <FaTwitterSquare size={30} />
+      </a>
+      <a href="https://github.com/NigelOmondi" target="_blank" rel="noopener noreferrer">
+        <FaGithubSquare size={30} />
+      </a>
+      <a href="https://nigelengineer.hashnode.dev/" target="_blank" rel="noopener noreferrer">
+        <FaHashnode size={30} />
+      </a>
         </div>
       </div>
       <div className='lg:col-span-2 flex justify-between mt-6'>

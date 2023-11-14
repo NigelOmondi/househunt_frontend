@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Project Link and Developer Contacts:
+To explore HouseHunt and witness its capabilities firsthand, visit https://househunt.onrender.com/. For inquiries or collaboration opportunities, feel free to reach out to the developer at nigelomondi.engineer@gmail.com.
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -13,7 +13,6 @@ import Hero from '../Hero';
 import Cover from '../Cover';
 import Footer from '../Footer';
 import Cards from '../Cards';
-import Video from '../video';
 
 function App() {
   const allHouses = useHouses();
@@ -45,12 +44,6 @@ function App() {
                   <Route path="/features">
                     <Navbar />
                     <Cards />
-                  </Route>
-
-                  <Route path="/demo">
-                    <Navbar />
-                    <Video />
-                    <Footer />
                   </Route>
 
                   <Route path="/contact">
